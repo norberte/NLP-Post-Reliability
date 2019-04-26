@@ -15,7 +15,7 @@ def __whiteSpaceAndNumericRemoval(text):
     cleanedText = mentionFinder.sub('', cleanedText)
 
     # get rid of html links
-    cleanedText = re.sub(links, '', cleanedText)
+    #cleanedText = re.sub(links, '', cleanedText)
     cleanedText = re.sub(html_links, '', cleanedText)
 
     # replace HTML symbols and weird code-tag

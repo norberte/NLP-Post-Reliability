@@ -1,6 +1,10 @@
 import pandas as pd
 import text_cleaning
 import datetime
+import nltk
+import sys
+
+from gensim import corpora
 
 csv_filepath = "../../data/CommentsFiltered.csv"
 json_filepath = "../../data/CleanComments.json"
@@ -29,6 +33,11 @@ def main():
 
     data.to_json(json_filepath, orient='table')
 
+
+def createDictionary(data):
+    dictionary = corpora.Dictionary(line.split() for line in data)
+    dictionary.compactify()
+    return dictionary
 
 if __name__ == '__main__':
     main()
